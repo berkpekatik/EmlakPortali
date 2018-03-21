@@ -1,0 +1,31 @@
+﻿@model EmlakPortal2.ViewModel.kayitModel
+<br /><h2>Yeni Üye Kaydı</h2>
+<div class="row">
+	<div class="col-md-4">
+		@using (Html.BeginForm("yeniKayit", "Home", FormMethod.Post))
+		{
+			@Html.LabelFor(k=>k.adsoyad)<br />
+			@Html.TextBoxFor(k=>k.adsoyad,new{@class="form-control"})
+		    @Html.ValidationMessageFor(k=>k.adsoyad,null,new { @class = "text-danger" })
+			<br />
+
+			@Html.LabelFor(k => k.mail)<br />
+			@Html.TextBoxFor(k => k.mail, new { @class = "form-control" })
+			@Html.ValidationMessageFor(k => k.mail, null, new { @class = "text-danger" })
+			<br />
+
+			@Html.LabelFor(k => k.yas)<br />
+			@Html.TextBoxFor(k => k.yas, new { @class = "form-control" })
+			@Html.ValidationMessageFor(k => k.yas, null, new { @class = "text-danger" })
+			<br />
+
+			<input type="submit" value="Kaydet" class="btn btn-success" />
+			<br />
+			if (ViewBag.sonuc != null)
+			{
+				<div class="alert alert-success">@ViewBag.sonuc</div>
+			}
+		}
+		
+	</div>
+</div>

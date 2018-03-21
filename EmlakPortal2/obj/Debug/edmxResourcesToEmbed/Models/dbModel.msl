@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db01ModelStoreContainer" CdmEntityContainer="db01Entities">
+    <EntitySetMapping Name="Kayitlar">
+      <EntityTypeMapping TypeName="db01Model.Kayitlar">
+        <MappingFragment StoreEntitySet="Kayitlar">
+          <ScalarProperty Name="kayId" ColumnName="kayId" />
+          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="yas" ColumnName="yas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

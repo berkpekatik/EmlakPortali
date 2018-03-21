@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Kayitlar">
+    <Key>
+      <PropertyRef Name="kayId" />
+    </Key>
+    <Property Name="kayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="yas" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="db01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Kayitlar" EntityType="Self.Kayitlar" />
+  </EntityContainer>
+</Schema>

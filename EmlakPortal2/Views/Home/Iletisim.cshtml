@@ -1,0 +1,16 @@
+﻿<div class="row">
+	<div class="col-md-12">
+		<h2>İletişim</h2>
+		@Html.Label("Adı Soyadı")
+		@Html.TextBox("adsoyad",null,new { @class = "form-control" })
+
+		@Html.Label("E-posta")
+		@Html.TextBox("eposta", null, new { @class = "form-control" })
+
+		@Html.Label("Mesaj")
+		@Html.TextBox("mesaj", null, new { @class = "form-control" })
+		<br />
+		<button class="btn btn-success">Gönder</button>
+	</div>
+</div>
+

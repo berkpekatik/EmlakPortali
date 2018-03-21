@@ -1,0 +1,30 @@
+﻿@model IEnumerable<EmlakPortal2.Models.Evler>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<h2>Emlak Portalına Hoşgeldiniz</h2>
+		Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.
+	<lr>
+		<table class="table table-hover">
+			<tr>
+				<td>İlan Id</td>
+				<td>İlan Adı</td>
+				<td>Ev M2</td>
+			</tr>
+			@foreach (var ev in Model)
+			{
+				<tr>
+					<td>@ev.evId</td>
+					<td>@ev.evAdi</td>
+					<td>@ev.m2</td>
+				</tr>
+			}
+		</table>
+	
+	</div>
+</div>
