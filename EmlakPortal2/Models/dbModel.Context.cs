@@ -25,6 +25,8 @@ namespace EmlakPortal2.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Banner> Banner { get; set; }
+        public virtual DbSet<ilanlar> ilanlar { get; set; }
         public virtual DbSet<Kayitlar> Kayitlar { get; set; }
     }
 }

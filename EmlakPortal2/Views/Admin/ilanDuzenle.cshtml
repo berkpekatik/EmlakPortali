@@ -1,0 +1,38 @@
+﻿@model EmlakPortal2.ViewModel.ilanModel
+<br />
+<h2>İlan Düzenleme</h2>
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("ilanDuzenle", "Admin", FormMethod.Post))
+        {
+            @Html.HiddenFor(k => k.ilanId)
+
+            @Html.LabelFor(k => k.ilanAdi)<br />
+            @Html.TextBoxFor(k => k.ilanAdi, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.ilanAdi, null, new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(k => k.ilanYer)<br />
+            @Html.TextBoxFor(k => k.ilanYer, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.ilanYer, null, new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(k => k.m2)<br />
+            @Html.TextBoxFor(k => k.m2, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.m2, null, new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(k => k.fiyat)<br />
+            @Html.TextBoxFor(k => k.fiyat, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.fiyat, null, new { @class = "text-danger" })
+            <br />
+
+            <input type="submit" value="Güncelle" class="btn btn-success" />
+            <br />
+            if (ViewBag.sonuc != null)
+            {
+                <div class="alert alert-success">@ViewBag.sonuc</div>
+            }
+        }
+    </div>
+</div>

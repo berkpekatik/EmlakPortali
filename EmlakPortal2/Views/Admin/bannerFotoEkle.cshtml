@@ -1,0 +1,47 @@
+﻿@model EmlakPortal2.ViewModel.bannerModel
+<div class="row">
+    <div class="col-md-4">
+        <br /><br />
+        @Html.ActionLink("Kayıtlar", "bannerListele", null, new
+        {
+            @class = "btn btn-primary"
+        })
+        <h2>Fotoğraf Ekle</h2>
+        @using (Html.BeginForm("bannerFotoEkle", "Admin", FormMethod.Post, new
+        {
+            enctype =
+       "multipart/form-data"
+        }))
+        {
+            @Html.LabelFor(k => k.baslik)<br />
+            @Html.TextBoxFor(k => k.baslik, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.baslik, null, new
+            {
+                @class = "textdanger"
+            })<br />
+            @Html.LabelFor(k => k.aciklama)<br />
+            @Html.TextAreaFor(k => k.aciklama, new { @class = "form-control" })
+            @Html.ValidationMessageFor(k => k.aciklama, null, new
+            {
+                @class = "textdanger"
+            })<br />
+            @Html.LabelFor(k => k.foto)<br />
+            @Html.TextBoxFor(k => k.foto, new
+            {
+                type = "file",
+                @class = "form-control"
+            })
+            @Html.ValidationMessageFor(k => k.foto, null, new
+            {
+                @class = "text-danger"
+            })<br />
+            <input type="submit" name="submit" value="Kaydet" class="btn btn-success" />
+
+            <br /><br />
+        }
+        @if (ViewBag.sonuc != null)
+        {
+            <p class="alert alert-success">@ViewBag.sonuc</p>
+        }
+    </div>
+</div>

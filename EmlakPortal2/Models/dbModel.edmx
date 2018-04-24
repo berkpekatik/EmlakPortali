@@ -5,16 +5,38 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="db01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="baslik" Type="nvarchar" MaxLength="50" />
+          <Property Name="aciklama" Type="nvarchar(max)" />
+          <Property Name="resimYol" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ilanlar">
+          <Key>
+            <PropertyRef Name="ilanId" />
+          </Key>
+          <Property Name="ilanId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilanAdi" Type="nvarchar(max)" />
+          <Property Name="ilanYer" Type="nvarchar(max)" />
+          <Property Name="m2" Type="int" Nullable="false" />
+          <Property Name="fiyat" Type="int" Nullable="false" />
+          <Property Name="ilanResim" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Kayitlar">
           <Key>
             <PropertyRef Name="kayId" />
           </Key>
           <Property Name="kayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="adsoyad" Type="nvarchar" MaxLength="50" />
-          <Property Name="mail" Type="nvarchar" MaxLength="50" />
-          <Property Name="yas" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="admin" Type="int" />
         </EntityType>
         <EntityContainer Name="db01ModelStoreContainer">
+          <EntitySet Name="Banner" EntityType="Self.Banner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ilanlar" EntityType="Self.ilanlar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kayitlar" EntityType="Self.Kayitlar" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -22,16 +44,38 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="db01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="resimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ilanlar">
+          <Key>
+            <PropertyRef Name="ilanId" />
+          </Key>
+          <Property Name="ilanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilanAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ilanYer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="m2" Type="Int32" Nullable="false" />
+          <Property Name="fiyat" Type="Int32" Nullable="false" />
+          <Property Name="ilanResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Kayitlar">
           <Key>
             <PropertyRef Name="kayId" />
           </Key>
           <Property Name="kayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="yas" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="admin" Type="Int32" />
         </EntityType>
         <EntityContainer Name="db01Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Banner" EntityType="Self.Banner" />
+          <EntitySet Name="ilanlar" EntityType="Self.ilanlar" />
           <EntitySet Name="Kayitlar" EntityType="Self.Kayitlar" />
         </EntityContainer>
       </Schema>
@@ -40,13 +84,35 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="db01ModelStoreContainer" CdmEntityContainer="db01Entities">
+          <EntitySetMapping Name="Banner">
+            <EntityTypeMapping TypeName="db01Model.Banner">
+              <MappingFragment StoreEntitySet="Banner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="resimYol" ColumnName="resimYol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilanlar">
+            <EntityTypeMapping TypeName="db01Model.ilanlar">
+              <MappingFragment StoreEntitySet="ilanlar">
+                <ScalarProperty Name="ilanId" ColumnName="ilanId" />
+                <ScalarProperty Name="ilanAdi" ColumnName="ilanAdi" />
+                <ScalarProperty Name="ilanYer" ColumnName="ilanYer" />
+                <ScalarProperty Name="m2" ColumnName="m2" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="ilanResim" ColumnName="ilanResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Kayitlar">
             <EntityTypeMapping TypeName="db01Model.Kayitlar">
               <MappingFragment StoreEntitySet="Kayitlar">
                 <ScalarProperty Name="kayId" ColumnName="kayId" />
-                <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
-                <ScalarProperty Name="mail" ColumnName="mail" />
-                <ScalarProperty Name="yas" ColumnName="yas" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="admin" ColumnName="admin" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

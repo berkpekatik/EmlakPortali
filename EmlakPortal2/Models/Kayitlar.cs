@@ -15,8 +15,8 @@ namespace EmlakPortal2.Models
     public partial class Kayitlar
     {
         public int kayId { get; set; }
-        public string adsoyad { get; set; }
-        public string mail { get; set; }
-        public int yas { get; set; }
+        public string username { get; set; }
+        public string pass { get; set; }
+        public Nullable<int> admin { get; set; }
     }
 }

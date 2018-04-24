@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EmlakPortal2.Models.Kayitlar>
+<div class="row">
+	<div class="col-md-12">
+		<h2>Uyeler</h2>
+		@Html.ActionLink("Yeni Üye Kaydı","yeniKayit",null,new { @class = "btn btn-primary" }) <br /><br />
+		<table class="table">
+			<tr>
+				<td>ID</td>
+				<td>Kullanıcı Adı</td>
+				<td>Şifre</td>
+				<td>Düzenle</td>
+				<td>Sil</td>
+			</tr>
+			@foreach (var kayit in Model)
+			{
+				<tr>
+					<td>@kayit.kayId</td>
+					<td>@kayit.username</td>
+					<td>@kayit.pass</td>
+					<td>@Html.ActionLink("Düzenle","kayitDuzenle",new {id=kayit.kayId}, new {@class="btn btn-warning"})</td>
+					<td>@Html.ActionLink("Sil", "kayitSil", new { id = kayit.kayId }, new { @class = "btn btn-danger" })</td>
+				</tr>
+			}
+		</table>
+	</div>
+</div>
+

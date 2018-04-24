@@ -1,15 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="db01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Banner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="resimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ilanlar">
+    <Key>
+      <PropertyRef Name="ilanId" />
+    </Key>
+    <Property Name="ilanId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilanAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ilanYer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="m2" Type="Int32" Nullable="false" />
+    <Property Name="fiyat" Type="Int32" Nullable="false" />
+    <Property Name="ilanResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
   <EntityType Name="Kayitlar">
     <Key>
       <PropertyRef Name="kayId" />
     </Key>
     <Property Name="kayId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="adsoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="yas" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="admin" Type="Int32" />
   </EntityType>
   <EntityContainer Name="db01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Banner" EntityType="Self.Banner" />
+    <EntitySet Name="ilanlar" EntityType="Self.ilanlar" />
     <EntitySet Name="Kayitlar" EntityType="Self.Kayitlar" />
   </EntityContainer>
 </Schema>

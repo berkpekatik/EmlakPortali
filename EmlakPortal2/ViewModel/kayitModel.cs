@@ -9,16 +9,14 @@ namespace EmlakPortal2.ViewModel
     public class kayitModel
     {
         public int kayId { get; set; }
-        [Required(ErrorMessage ="Adı Soyadı Giriniz!")]
-        [Display(Name ="Adı Soyadı")]
-        [StringLength(50,ErrorMessage ="Adı Soyadı En Fazla 50 Karakter Olmalı!")]
-        public string adsoyad { get; set; }
-        [Required(ErrorMessage = "E-Posta Giriniz!")]
-        [Display(Name = "E-Posta")]
-        [StringLength(50, ErrorMessage = "E-Posta En Fazla 50 Karakter Olmalı!")]
-        public string mail { get; set; }
-        [Required(ErrorMessage = "Yaş Giriniz!")]
-        [Display(Name = "Yaş")]
-        public int yas { get; set; }
+        [Required(ErrorMessage ="Kullanıcı Adı Giriniz!")]
+        [Display(Name ="Kullanıcı Adı")]
+        [StringLength(50,ErrorMessage ="Kullanıcı Adı En Fazla 50 Karakter Olmalı!")]
+        public string username { get; set; }
+        [Required(ErrorMessage = "Şifrenizi Giriniz!")]
+        [Display(Name = "Şifre")]
+        [StringLength(50, ErrorMessage = "Şifre en fazla 50 Karakter Olmalı!")]
+        public string pass { get; set; }
+
     }
 }

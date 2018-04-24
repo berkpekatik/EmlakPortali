@@ -1,13 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="db01ModelStoreContainer" CdmEntityContainer="db01Entities">
+    <EntitySetMapping Name="Banner">
+      <EntityTypeMapping TypeName="db01Model.Banner">
+        <MappingFragment StoreEntitySet="Banner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="baslik" ColumnName="baslik" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="resimYol" ColumnName="resimYol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilanlar">
+      <EntityTypeMapping TypeName="db01Model.ilanlar">
+        <MappingFragment StoreEntitySet="ilanlar">
+          <ScalarProperty Name="ilanId" ColumnName="ilanId" />
+          <ScalarProperty Name="ilanAdi" ColumnName="ilanAdi" />
+          <ScalarProperty Name="ilanYer" ColumnName="ilanYer" />
+          <ScalarProperty Name="m2" ColumnName="m2" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="ilanResim" ColumnName="ilanResim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Kayitlar">
       <EntityTypeMapping TypeName="db01Model.Kayitlar">
         <MappingFragment StoreEntitySet="Kayitlar">
           <ScalarProperty Name="kayId" ColumnName="kayId" />
-          <ScalarProperty Name="adsoyad" ColumnName="adsoyad" />
-          <ScalarProperty Name="mail" ColumnName="mail" />
-          <ScalarProperty Name="yas" ColumnName="yas" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="admin" ColumnName="admin" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,28 @@
+﻿@model EmlakPortal2.ViewModel.kayitModel
+<div class="row">   
+    <div class="col-md-4">
+        <h2>Oturum Aç</h2>
+        @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+        {
+            @Html.LabelFor(m => m.username)
+            @Html.TextBoxFor(m => m.username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.username, null, new
+            {
+                @class = "text-danger"
+            })
+            <br />
+            @Html.LabelFor(m => m.pass)
+            @Html.PasswordFor(m => m.pass, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.pass, null, new
+            {
+                @class = "textdanger"
+            })
+            <br />
+            <input type="submit" class="btn btn-success" value="Giriş" />
+            <br />
+        }
+        @if (ViewBag.sonuc != null)
+        {
+            <div class="alert alert-danger">@ViewBag.sonuc</div>}
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model EmlakPortal2.ViewModel.kayitModel
+<br />
+<h2>Kayıt Düzenleme</h2>
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("kayitDuzenle", "Admin", FormMethod.Post))
+    {
+        @Html.HiddenFor(k => k.kayId)
+
+        @Html.LabelFor(k => k.username)<br />
+        @Html.TextBoxFor(k => k.username, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.username, null, new { @class = "text-danger" })
+        <br />
+
+        @Html.LabelFor(k => k.pass)<br />
+        @Html.TextBoxFor(k => k.pass, new { @class = "form-control" })
+        @Html.ValidationMessageFor(k => k.pass, null, new { @class = "text-danger" })
+        <br />
+
+        <input type="submit" value="Güncelle" class="btn btn-success" />
+        <br />
+    if (ViewBag.sonuc != null)
+    {
+        <div class="alert alert-success">@ViewBag.sonuc</div>
+}
+}
+    </div>
+</div>

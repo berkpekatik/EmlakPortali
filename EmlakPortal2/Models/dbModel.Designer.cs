@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'c:\users\green\documents\visual studio 2015\Projects\EmlakPortal2\EmlakPortal2\Models\dbModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\User\Desktop\EmlakPortali-master\EmlakPortal2\Models\dbModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

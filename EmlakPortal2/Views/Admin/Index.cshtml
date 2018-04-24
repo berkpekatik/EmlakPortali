@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EmlakPortal2.Models.ilanlar>
+<div class="row">
+    <div class="col-md-12">
+        <br /><div class="jumbotron"><center></center> <h3>Admin Paneline Hoşgeldiniz, Sitenizi yönetin istediğiniz herşeyi yapın! <br />Dilerseniz Üst Menüyü kullanarak Sayfalarınızı Gezebilirsiniz.!</h3> </div>
+        @Html.ActionLink("Üye Listesi", "Uyeler", null, new
+    {
+        @class = "btn btnprimary"
+    })
+        @Html.ActionLink("Banner Fotoğraf Ekle", "bannerFotoEkle", null, new
+    {
+        @class = "btn btnprimary"
+    })
+        @Html.ActionLink("Banner Fotoğraflarını Değiştir", "bannerListele", null, new
+    {
+        @class = "btn btn - danger"
+    })
+        @Html.ActionLink("Yeni İlan", "ilanKayit", null, new
+    {
+        @class = "btn btnprimary"
+    })
+        @Html.ActionLink("Oturumu Kapat", "OturumKapat", null, new
+    {
+        @class = "btn btn - danger" })
+
+
+
+
+        <br /><br />
+        <table class="table">
+            <tr>
+                <td>ID</td>
+                <td>İlan Resmi</td>
+                <td>İlan Adı</td>
+                <td>Şehir</td>
+                <td>Metre Karesi</td>
+                <td>Fiyati</td>
+                <td>Düzenle</td>
+                <td>Sil</td>
+            </tr>
+            @foreach (var ilan in Model)
+        {
+            <tr>
+                <td>@ilan.ilanId</td>
+                <td><img src="~/Content/ilanResim/@ilan.ilanResim" width="150" height="150" /></td>
+                <td>@ilan.ilanAdi</td>
+                <td>@ilan.ilanYer</td>
+                <td>@ilan.m2</td>
+                <td>@ilan.fiyat TL</td>
+                <td>@Html.ActionLink("Düzenle", "ilanDuzenle", new { id = ilan.ilanId }, new { @class = "btn btn-warning" })</td>
+                <td>@Html.ActionLink("Sil", "ilanSil", new { id = ilan.ilanId }, new { @class = "btn btn-danger" })</td>
+            </tr>
+    }
+        </table>
+    </div>
+</div>
+

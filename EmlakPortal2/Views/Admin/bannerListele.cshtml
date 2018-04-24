@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EmlakPortal2.Models.Banner>
+<div class="row">
+    <div class="col-md-12">
+        <br /><br />
+    
+
+        <h2>Kayıtlar</h2>
+        <table class="table">
+            <tr>
+                <td><b>Id</b></td>
+                <td><b>Fotoğraf</b></td>
+                <td><b>Başlık</b></td>
+                <td><b>Açıklama</b></td>
+                <td><b>Düzenle</b></td>
+                <td><b>Sil</b></td>
+            </tr>
+            @foreach (var banner in Model)
+        {
+            <tr>
+                <td>@banner.Id</td>
+                <td>
+                    <img src="~/Content/Banner/@banner.resimYol"
+                         style="width:100px;height:50px" />
+                </td>
+                <td>@banner.baslik</td>
+                <td>@banner.aciklama</td>
+                <td>
+                    @Html.ActionLink("Düzenle", "FotoDuzenle", new
+                {
+                    id = banner.Id
+                }, new { @class = "btn btn-warning" })
+                </td>
+                <td>
+                    @Html.ActionLink("Sil", "FotoSil", new { id = banner.Id }, new
+                { @class = "btn btn-danger" })
+                </td>
+            </tr>
+    }
+        </table>
+    </div>
+</div>
